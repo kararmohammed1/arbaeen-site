@@ -1,0 +1,130 @@
+/* ألوان رئيسية */
+:root {
+  --black: #0a0a0a;
+  --white: #f9f9f9;
+  --green: #2ecc71;
+  --gold: #d4af37;
+}
+
+/* إعدادات عامة */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  direction: rtl;
+  min-height: 100vh;
+}
+
+/* الحاوية */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* الرأس */
+.header {
+  background-color: var(--black);
+  border-bottom: 2px solid var(--gold);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2.4rem;
+  color: var(--gold);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* قائمة التنقل */
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+}
+
+.nav-list li a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--green), var(--gold));
+  font-weight: 600;
+  transition: background 0.3s ease;
+  display: block;
+  min-width: 170px;
+  text-align: center;
+}
+
+.nav-list li a:hover,
+.nav-list li a:focus {
+  background: var(--gold);
+  color: var(--black);
+  outline: none;
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+  padding: 40px 20px;
+  background: #121212;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  text-align: center;
+}
+
+.intro-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 15px auto;
+  color: var(--white);
+}
+
+/* الفوتر */
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  padding: 18px 0;
+  border-top: 1px solid var(--gold);
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* تجاوب مع الشاشات */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+  }
+
+  .nav-list li a {
+    min-width: 100%;
+  }
+}
+.main-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.main-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
